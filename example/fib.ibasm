@@ -1,0 +1,25 @@
+jmp start # skip around the variables
+var i
+var s
+var N
+var one = 1
+var zero = 0
+start:  readH # read N
+        store   N
+        load    one
+        store   i
+        load    zero
+        store   s
+loop:   load    N 
+        sub     i
+        jmpl    exit
+        load    s
+        add     i
+        store   s
+        load    i
+        add     one
+        store   i
+        jmp     loop
+exit:   load    s
+        printH
+        halt
